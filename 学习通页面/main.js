@@ -81,7 +81,9 @@ console.log(second);
 
 que3.addEventListener('click',function(){
     if( frist.value !==second.value){
-        alert("两次输入密码不一致")
+        let res = confirm('两次输入密码不一致')
+
+
         frist.value='';
         second.value = '';
     }
