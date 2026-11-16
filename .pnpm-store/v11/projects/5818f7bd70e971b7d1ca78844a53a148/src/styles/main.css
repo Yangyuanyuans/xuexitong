@@ -1,0 +1,237 @@
+/* =========================================================
+   全局样式：设计变量、基础重置与跨组件复用的表单/按钮类
+   ========================================================= */
+
+:root {
+  /* 品牌色取自原版侧边栏 rgb(77, 88, 181) */
+  --brand-500: #4d58b5;
+  --brand-600: #4343b3;
+  --brand-700: #3a3a9a;
+  --brand-50: #eef0fb;
+
+  /* 原版超链接色 rgb(19, 168, 209) */
+  --accent: #13a8d1;
+
+  --text-900: #23262f;
+  --text-700: #464b58;
+  --text-500: #7b8191;
+  --text-300: #a9aebc;
+
+  --line: #e9ebf2;
+  --surface: #ffffff;
+  --canvas: #f4f5fa;
+  --danger: #e5484d;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+
+  --shadow-card: 0 10px 30px rgba(34, 42, 90, 0.06);
+
+  --font-sans: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-900);
+  background-color: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+dl,
+dt,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background-color: rgba(77, 88, 181, 0.18);
+}
+
+/* 滚动条：比浏览器默认样式更细，避免抢占内容视觉 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d3d7e3;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bfc5d6;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* ---------- 跨组件复用的基础控件 ---------- */
+
+.text-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #d9dce7;
+  border-radius: var(--radius-sm);
+  background-color: #fff;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.text-input::placeholder {
+  color: var(--text-300);
+}
+
+.text-input:hover {
+  border-color: #c3c8d8;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 3px rgba(77, 88, 181, 0.14);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background-color: var(--brand-500);
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.16s ease, box-shadow 0.16s ease,
+    transform 0.12s ease;
+}
+
+.button:hover {
+  background-color: var(--brand-600);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--brand-500);
+  outline-offset: 2px;
+}
+
+.button--primary {
+  background-color: var(--brand-500);
+}
+
+.button--danger {
+  background-color: var(--danger);
+}
+
+.button--danger:hover {
+  background-color: #cf3b40;
+}
+
+.link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--brand-500);
+  cursor: pointer;
+}
+
+/* 仅供读屏使用 */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

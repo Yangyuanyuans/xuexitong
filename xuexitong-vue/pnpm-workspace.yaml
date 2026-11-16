@@ -1,0 +1,7 @@
+# pnpm 11 的项目级配置（package.json 的 pnpm 字段与 .npmrc 已不再读取）
+nodeLinker: hoisted
+verifyDepsBeforeRun: false
+
+# 允许 esbuild 执行安装脚本（pnpm 11 用 allowBuilds 取代 onlyBuiltDependencies）
+allowBuilds:
+  esbuild: true
